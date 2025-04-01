@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import '../style.scss';
+
 
 nav{
     display: flex;
@@ -23,8 +23,8 @@ nav{
             margin: 0 20px;
             font-weight: bold;
             font-size: 20px;
-            color: $color-logo;
-            background-color: $color-text;
+            color: #c26961;
+            background-color: #fff;
             padding: 5px 10px;
             border-radius: 10px;
         }
@@ -32,7 +32,7 @@ nav{
 
     form{
         display: flex;
-        background-color: $background;
+        background-color: #141414;
         padding: 5px;
         border-radius: 10px;
         
@@ -41,7 +41,7 @@ nav{
             border: none;
             font-size: 20px;
             cursor: pointer;
-            background-color: $background;
+            background-color: #141414;
             margin: 0 10px;
             display: flex;
             align-items: center;
@@ -51,7 +51,7 @@ nav{
         input{
             border: none;
             font-size: 20px;
-            background-color: $background;
+            background-color: #141414;
             outline: none;
         }
    }

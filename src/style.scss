@@ -1,19 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-$background: #141414;
-$color-text: #fff;
-$color-logo: #c26961;
-
 *{
     font-family: "Open Sans", sans-serif;
-    color: $color-text;
+    color: #fff;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 body{
-    background-color: $background;
+    background-color: #141414;
 }
 
 h1{
