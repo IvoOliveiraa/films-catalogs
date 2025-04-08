@@ -1,0 +1,13 @@
+.cards-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-template-rows: 370px 370px;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    
+    img{
+        width: 250px;
+    }
+}

@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import App from './App.jsx'
 import Home from './pages/Home.jsx'
-import Movies from './pages/Movies.jsx'
+import About from './pages/About.jsx'
 import Search from './pages/Search.jsx'
 import Series from './pages/Series.jsx'
 
@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')).render(
     <Routes>
       <Route element={ <App />}>
       <Route path='/' element={ <Home />} />
-      <Route path='movie/:id' element={ <Movies />} />
+      <Route path='sobre/:id' element={ <About />} />
       <Route path='serie' element={ <Series />} />
       <Route path='search' element={ <Search />} />
       </Route>

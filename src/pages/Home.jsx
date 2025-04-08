@@ -1,22 +1,20 @@
 import { useState, useEffect } from "react";
 
-
 const movieApiURL = import.meta.env.VITE_API_MOVIE;
 const apiKEY = import.meta.env.VITE_API_KEY;
-const img500 = import.meta.env.VITE_IMG;
 
 import './Home.scss';
 import Slide from "../components/Slide";
+import Card from "../components/Card";
 
 
 
 const Home = () =>{
 
     const [moviesApi, setMoviesApi] = useState({
-        top_rated: [],
-        popular: [],
-        now_playing: [],
         upcoming: [],
+        now_playing: [],
+        top_rated: []
     });
 
     const getAllMovies = async(category) =>{
@@ -37,16 +35,28 @@ const Home = () =>{
     }
 
     useEffect(() =>{
-        getAllMovies('top_rated');
-        getAllMovies('popular');
-        getAllMovies('now_playing');
         getAllMovies('upcoming');
+        getAllMovies('now_playing');
+        getAllMovies('top_rated');
     },[])
     
 
     return (
         <div className="container">
             <Slide moviesApi={moviesApi}/>
+
+            <div className="cards-container">
+
+                {moviesApi.now_playing.map((movie) => (
+                   <Card movie={movie} />
+                ))}
+
+                {moviesApi.top_rated.map((movie) => (
+                   <Card movie={movie} />
+                ))}
+
+            </div>
+            
         </div>
         
     )
