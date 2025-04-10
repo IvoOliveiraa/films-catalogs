@@ -43,16 +43,16 @@ const Home = () =>{
 
     return (
         <div className="container">
-            <Slide moviesApi={moviesApi}/>
+            <Slide moviesApi={moviesApi} category="upcoming"/>
 
             <div className="cards-container">
 
                 {moviesApi.now_playing.map((movie) => (
-                   <Card movie={movie} />
+                   <Card key={movie.id} movie={movie} />
                 ))}
 
                 {moviesApi.top_rated.map((movie) => (
-                   <Card movie={movie} />
+                   <Card key={movie.id} movie={movie} />
                 ))}
 
             </div>

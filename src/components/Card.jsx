@@ -9,7 +9,7 @@ const Card = ({movie}) =>{
 
     return (
         <div className="card">
-            <Link to={`sobre/${movie.id}`} key={movie.id}>
+            <Link to={`/sobre/${movie.id}`} key={movie.id}>
                 <img src={`${img500}${movie.poster_path}`} alt={movie.title} />  
             </Link>        
         </div>

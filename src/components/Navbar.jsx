@@ -25,7 +25,7 @@ const Navbar = () => {
 
       <form>
         <button type="submit"><CiSearch/></button>
-        <input type="text" placeholder="Pesquisar filme"/>
+        <input type="text" placeholder="Pesquisar título"/>
       </form>
        
     </nav>

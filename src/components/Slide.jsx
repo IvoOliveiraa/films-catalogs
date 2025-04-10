@@ -16,7 +16,7 @@ const imgOriginal = import.meta.env.VITE_IMG_ORI;
 
 import './Slide.scss';
 
-const Slide = ({moviesApi}) =>{
+const Slide = ({moviesApi, category}) =>{
 
     const progressCircle = useRef(null);
     const progressContent = useRef(null);
@@ -43,7 +43,7 @@ const Slide = ({moviesApi}) =>{
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
                 className="mySwiper"
                 >
-                {moviesApi.upcoming.map((movie) => (
+                {moviesApi[category]?.map((movie) => (
                     <SwiperSlide key={movie.id}>
                         <img src={`${imgOriginal}${movie.backdrop_path}`} alt={movie.title} />
                     </SwiperSlide>
