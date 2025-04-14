@@ -28,11 +28,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="menu">
-        <Link to='/'><h3>Filmes</h3></Link>
-        <Link to='serie'><h3>Series</h3></Link>
-      </div>
-
       <form onSubmit={handleSubmit}>
         <button type="submit"><CiSearch/></button>
         <input type="text" placeholder="Pesquisar título" onChange={(e) => setSearch(e.target.value)} value={search}/>

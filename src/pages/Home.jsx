@@ -6,11 +6,13 @@ const apiKEY = import.meta.env.VITE_API_KEY;
 import './Home.scss';
 import Slide from "../components/Slide";
 import Card from "../components/Card";
+import Loader from "../components/Loader";
 
 
 
 const Home = () =>{
 
+    const [loading, setLoading] = useState(true);
     const [moviesApi, setMoviesApi] = useState({
         upcoming: [],
         now_playing: [],
@@ -35,11 +37,20 @@ const Home = () =>{
     }
 
     useEffect(() =>{
-        getAllMovies('upcoming');
-        getAllMovies('now_playing');
-        getAllMovies('top_rated');
+        const fetchAll = async () => {
+            setLoading(true);
+            await Promise.all([
+                getAllMovies('upcoming'),
+                getAllMovies('now_playing'),
+                getAllMovies('top_rated')
+            ]);
+            setLoading(false);
+        };
+
+        fetchAll();
     },[])
     
+    if (loading) return <Loader />;
 
     return (
         <div className="container">

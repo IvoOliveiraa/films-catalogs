@@ -7,7 +7,6 @@ import App from './App.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Search from './pages/Search.jsx'
-import Series from './pages/Series.jsx'
 
 import './style.scss'
 
@@ -18,7 +17,6 @@ createRoot(document.getElementById('root')).render(
       <Route element={ <App />}>
       <Route path='/' element={ <Home />} />
       <Route path='sobre/:id' element={ <About />} />
-      <Route path='serie' element={ <Series />} />
       <Route path='search' element={ <Search />} />
       </Route>
     </Routes>

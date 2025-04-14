@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import Card from "../components/Card";
+import Loader from "../components/Loader";
+
 
 const searchMovieURL = import.meta.env.VITE_SEARCH_MOVIE
-const searchSerieURL = import.meta.env.VITE_SEARCH_SERIE
 const apiKEY = import.meta.env.VITE_API_KEY
 
 import './Search.scss'
 
 
 const Search = () =>{
+    const [loading, setLoading] = useState(true);
     const [searchParams] = useSearchParams();
     const [movies, setMovies] = useState([]);
     const query = searchParams.get("q");
@@ -17,19 +19,10 @@ const Search = () =>{
     const getAllSearch = async() =>{
 
         try{
-            const [movieRes, serieRes] = await Promise.all([
-                fetch(`${searchMovieURL}?${apiKEY}&query=${query}`),
-                fetch(`${searchSerieURL}?${apiKEY}&query=${query}`)
-              ]);
-        
-              const [movieData, serieData] = await Promise.all([
-                movieRes.json(),
-                serieRes.json()
-              ]);
-        
-              const allResults = [...movieData.results, ...serieData.results];
-        
-              setMovies(allResults);
+           const res = await fetch(`${searchMovieURL}?${apiKEY}&query=${query}`);
+           const data = await res.json();
+
+           setMovies(data.results);
 
 
         }catch(err){
@@ -37,9 +30,24 @@ const Search = () =>{
         }
     }
 
-    useEffect(() =>{
-        getAllSearch();
-    },[query])
+    useEffect(() => {
+        
+        const fetchAll = async () => {
+            setLoading(true);
+            try {
+                await getAllSearch();
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+    
+        fetchAll();
+    }, [query]);
+    
+
+    if (loading) return <Loader />;
 
     return(
         <div>

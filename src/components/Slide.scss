@@ -3,8 +3,12 @@
   width: 100vw;
   max-height: 90vh;
   position: relative;
-  top: -100px;
+  top: -105px;
 
+    @media screen and (max-width: 377px) {
+      top: -155px;
+    }
+    
   .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -19,6 +23,11 @@
       height: 100%;
       object-fit: cover;
     }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
   }
 }
 
