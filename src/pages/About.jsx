@@ -22,7 +22,6 @@ const About = () =>{
             const data = await res.json();
 
             setTitle(data);
-            console.log(data)
 
 
         }catch(err){
